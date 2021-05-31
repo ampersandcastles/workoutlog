@@ -16,3 +16,5 @@ const Log = db.define("log", {
     type: DataTypes.INTEGER,
   },
 });
+
+module.exports = Log;

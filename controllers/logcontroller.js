@@ -3,10 +3,6 @@ const router = Express.Router();
 let validateJWT = require("../middleware/validate-jwt");
 const { LogModel } = require("../models");
 
-router.get("/practice", (req, res) => {
-  res.send("This is a route");
-});
-
 router.post("/create", validateJWT, async (req, res) => {
   const { description, definition, result } = req.body.log;
   const { owner_id } = req.user;
@@ -23,6 +19,15 @@ router.post("/create", validateJWT, async (req, res) => {
     res.status(500).json({ error: error });
   }
   LogModel.create(logEntry);
+});
+
+router.get("/", async (req, res) => {
+  try {
+    const entries = await LogModel.findAll();
+    res.status(200).json(entries);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
 });
 
 router.get("/about", (req, res) => {

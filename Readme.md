@@ -1,10 +1,10 @@
-#Workout Log assignment
+# Workout Log assignment
 
 ~~Everything on this was actually going very well unti just now (Monday @ 7:30). I started getting a forbidden error and I"m struggling to find out why.~~
 
-#Update 9:05
+# Update 9:05
 
-I worked through this. This was an authorization error. Now I'm getting a new error. I'm able to create the logs, but unable to get the id.
+I worked through this. This was an authorization error. Now I'm getting a new error. I'm able to create the logs, but unable to get the id. Everything in my database is also a double entry which seems like a really fun bug.
 
 ![forbidden screenshot](https://github.com/tristanlearns/workoutlog/blob/main/images/get-logs.png?raw=true)
 

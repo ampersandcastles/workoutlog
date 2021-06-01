@@ -1,16 +1,17 @@
 const Express = require("express");
 const router = Express.Router();
 let validateJWT = require("../middleware/validate-jwt");
-const { LogModel } = require("../models");
+const { LogModel, UserModel } = require("../models");
 
 router.post("/create", validateJWT, async (req, res) => {
   const { description, definition, result } = req.body.log;
   const { owner_id } = req.user;
+  console.log(req.user);
   const logEntry = {
     description,
     definition,
     result,
-    owner: owner_id,
+    owner_id: owner_id,
   };
   try {
     const newLog = await LogModel.create(logEntry);
